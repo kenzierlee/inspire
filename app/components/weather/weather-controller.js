@@ -4,7 +4,8 @@ function WeatherController(){
 	
 	weatherService.getWeather(function(weather){
 		console.log(weather);
-		//What can you do with this weather object?
+		
 	})
+	
 
 }

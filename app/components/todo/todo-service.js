@@ -1,7 +1,7 @@
 function TodoService() {
 	// A local copy of your todos
 	var todoList = []
-	var baseUrl = 'https://inspire-server.herokuapp.com/api/todos/YOURNAMEHERE'
+	var baseUrl = 'https://inspire-server.herokuapp.com/api/mackenzie'
 
 	function logError(err) {
 		console.error('UMM SOMETHING BROKE: ', err)
