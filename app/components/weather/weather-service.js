@@ -4,6 +4,12 @@ function WeatherService() {
 	var apiUrl = url + encodeURIComponent(url2);
 	var weatherData = []
 
+	function Weather(){
+		this.tempKelvin = weatherData.main.temp[i]
+		this.tempMax = weatherData.main.temp_max[i]
+		this.tempMin = weatherData.main.temp_min[i]
+	}
+
 	this.getWeather = function (callWhenDone) {
 		$.get(apiUrl, function (res) {
 			res = JSON.parse(res)
@@ -12,15 +18,17 @@ function WeatherService() {
 			// Have you ever wanted to know the temperature measured in kelvin?
 			// You should probably convert the temperature data
 			callWhenDone(res);
+			console.log(res)
 			weatherData.push(res)
 		})
 	}
-	this.tempConverter = function tempConverter(tempKelvin){
-		tempKelvin = [weatherData.main.temp[i],weatherData.main.temp_max[i],weatherData.main.temp_min[i]]
-		var tempFahrenheit = []
-		tempKelvin.forEach(temp => {
-			temp = (temp * 1.8) - 459.67
-			tempFahrenheit.push(temp)
-		})
+	
+	this.celsiusConverter = function celsiusConverter(temp){
+		var celsiusTemp = (temp-273.15)
+		return Math.floor(celsiusTemp)
+	}
+	this.fahrenheitConverter = function fahrenheitConverter(temp){
+		var fahrenheitTemp = (temp * 1.8) - 459.67
+		return Math.floor(fahrenheitTemp)
 	}
 }

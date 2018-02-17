@@ -7,24 +7,43 @@
 </head>
 
 <body id="body">
-	<div id="weather">
-		Your Weather Template
+	<div class="container-fluid">
+		<div class="row align-items-end">
+			<div class="col-sm-3 text-center weather">
+				<div id="weather">
+					Your Weather Template
+				</div>
+			</div>
+		</div>
+		<div class="row align-items-center">
+			<div class="col-sm-4 text-center greeting">
+				<h1>
+					<b>Good morning, Mackenzie.</b>
+				</h1>
+			</div>
+		</div>
+		<div class="row align-items-start">
+			<div class="col-sm-5 offset-sm-2">
+				<div id="quote">
+					
+				</div>
+			</div>
+			<div class="col-sm-3 offset-sm-2">
+				<div id="todo">
+					<form onsubmit="app.controllers.todoController.addTodo(event)" id="todo-form">
+						<input type="text" class="form-control" name="title" placeholder="New Todo">
+						<button type="submit" class="btn btn-primary">Add Todo</button>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
-
-	<div id="quote">
-		The Quote
-	</div>
-
-	<div id="todo">
-		<form onsubmit=""></form>
-		A Todo List
-	</div>
-
 
 
 
 	<!--JS Libraries-->
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<!--Services-->
 	<script src="app/components/weather/weather-service.js"></script>
 	<script src="app/components/image/image-service.js"></script>

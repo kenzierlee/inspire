@@ -1,8 +1,28 @@
-img {
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    
+.action{
+    transition: all .3s linear;
+    opacity: .3;
+    cursor: pointer;
+}
+
+.action:hover{
+    opacity: 1;
+}
+.hidden{
+    height: 0;
+    opacity: 0;
+    cursor: default;
+    pointer-events: none;
+
+}
+#author {
+    opacity: 0
+}
+#author:hover{
+    opacity: 1
+}
+#weather {
+    text-align: right
+}
+#quote {
+    text-align: end, center
 }
