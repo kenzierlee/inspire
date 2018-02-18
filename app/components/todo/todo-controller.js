@@ -13,16 +13,21 @@ function TodoController() {
 		var template = ''
 		todos.forEach(todo => {
 			template += `
-			<p class='text-center'><input onclick='app.controllers.todoController.removeTodo('${todo.id} id='checkbox' type='checkbox'>${todo.title}</p>
+			<div class="form-check">
+  				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="${todo.id}">
+				  <label class="form-check-label" for="${todo.id}">${todo.title}</label>
+				  <i onclick="app.controller.todoController.removeTodo('${todoId}')" class="action fas fa-trash-alt"></i>
+			</div>
 			`
+
 		})
 		todoElem.innerHTML = template
 	}
 
 	this.addTodo = function (e) {
 		e.preventDefault();
-		var form = e.target
-		todoService.addTodo(form, drawTodos)
+		var formData = e.target.value
+		todoService.addTodo(formData, drawTodos)
 		//reset method will clear the todo form preventing multiple submits for 1 todo
 		formElem.reset()
 	}

@@ -8,7 +8,7 @@ body {
 }
 .action{
     transition: all .3s linear;
-    opacity: .3;
+    opacity: .5;
     cursor: pointer;
 }
 

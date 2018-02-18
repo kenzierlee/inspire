@@ -25,14 +25,16 @@ function TodoService() {
 			.fail(logError)
 	}
 
-	this.addTodo = function (data,cb) {
-		// posts the to dos to the server so its saved
-		var todo = new Todo(data)
+	this.addTodo = function (form,cb) {
+		// posts the todos to the server so its saved
+		var todo = new Todo(form)
 		$.post(baseUrl, todo)
-			.then(todo => { 
-				todoList.push(todo)
+		//for each todo push todo object into the todo list array
+			.then(function(res){ 
+				todoList.push(res)
 				cb(todoList)
-			}) 
+			})
+			//if function fails the logError function will alert user
 			.fail(logError)
 	}
 
@@ -49,18 +51,18 @@ function TodoService() {
 			data: JSON.stringify(todoList)
 		})
 			.then(function (res) {
-				//DO YOU WANT TO DO ANYTHING WITH THIS?
+				this.getTasks(cb)
 			})
 			.fail(logError)
 	}
 
 	this.removeTodo = function (todoId,cb) {
 		$.ajax({
-			url: baseUrl +'/'+todoId,
+			url: baseUrl +'/'+ todoId,
 			//using the method delete will delete the object at the above url
 			method: 'DELETE'
 		})
-			.then(re => {
+			.then(res => {
 				//then we need to redraw the todo list so its updated
 				this.getTodos(cb)
 			})
