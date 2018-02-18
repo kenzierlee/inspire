@@ -6,7 +6,7 @@ function QuoteController(){
 	qs.getQuote(drawQuote)
 
 	function drawQuote(res){
-		template = `<p>${res.quote}</p><p id='author'>${res.author}</p>`
+		template = `<p>${res.quote}<b id='author'> - ${res.author}</b></p>`
 		quoteElem.innerHTML = template
 	}
 }

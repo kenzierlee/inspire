@@ -3,35 +3,37 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Inspire</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body id="body">
 	<div class="container-fluid">
-		<div class="row align-items-end">
-			<div class="col-sm-3 text-center weather">
+		<div class="row">
+			<div class="col-sm-12 text-center weather">
 				<div id="weather">
-					Your Weather Template
+					
 				</div>
 			</div>
 		</div>
-		<div class="row align-items-center">
-			<div class="col-sm-4 text-center greeting">
+		<div class="row">
+			<div class="col-sm-12 greeting">
 				<h1>
 					<b>Good morning, Mackenzie.</b>
 				</h1>
 			</div>
 		</div>
-		<div class="row align-items-start">
-			<div class="col-sm-5 offset-sm-2">
+		<div class="row" id="footer">
+			<div class="col-sm-9">
 				<div id="quote">
 					
 				</div>
 			</div>
-			<div class="col-sm-3 offset-sm-2">
+			<div class="col-sm-3">
 				<div id="todo">
-					<form onsubmit="app.controllers.todoController.addTodo(event)" id="todo-form">
-						<input type="text" class="form-control" name="title" placeholder="New Todo">
+					<form onsubmit="app.controllers.todoController.addTodo(e)" id="todo-form">
+						<input type="text" class="form-control" name="title" placeholder="New Todo" required>
 						<button type="submit" class="btn btn-primary">Add Todo</button>
 					</form>
 				</div>

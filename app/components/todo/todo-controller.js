@@ -6,14 +6,14 @@ function TodoController() {
 
 	// Use this getTodos function as your callback for all other edits
 	function getTodos(){
-		todoService.getTodos(draw)
+		todoService.getTodos(drawTodos)
 	}
 
-	function draw(todos) {
+	function drawTodos(todos) {
 		var template = ''
 		todos.forEach(todo => {
 			template += `
-			<p class='bg-4 text-center'><input onclick='app.controllers.todoController.removeTodo('${todo.id} id='checkbox' type='checkbox'>${todo.title}</p>
+			<p class='text-center'><input onclick='app.controllers.todoController.removeTodo('${todo.id} id='checkbox' type='checkbox'>${todo.title}</p>
 			`
 		})
 		todoElem.innerHTML = template
@@ -22,7 +22,7 @@ function TodoController() {
 	this.addTodo = function (e) {
 		e.preventDefault();
 		var form = e.target
-		todoService.addTodo(form, draw)
+		todoService.addTodo(form, drawTodos)
 		//reset method will clear the todo form preventing multiple submits for 1 todo
 		formElem.reset()
 	}
@@ -37,6 +37,6 @@ function TodoController() {
 		todoService.removeTodo(todoId,getTodos)
 	}
 
-	getTodos(draw)
+	getTodos()
 
 }

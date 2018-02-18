@@ -1,3 +1,11 @@
+body {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #fff !important;
+    font-weight: 900;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat
+}
 .action{
     transition: all .3s linear;
     opacity: .3;
@@ -14,6 +22,11 @@
     pointer-events: none;
 
 }
+.greeting {
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+}
 #author {
     opacity: 0
 }
@@ -21,8 +34,23 @@
     opacity: 1
 }
 #weather {
-    text-align: right
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 2rem;
 }
 #quote {
-    text-align: end, center
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+#todo {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+#footer {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+    padding-top: 15rem;
 }

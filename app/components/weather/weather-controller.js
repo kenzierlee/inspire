@@ -18,7 +18,7 @@ function WeatherController(){
 		}
 		template = `
 		<div class='weather'>
-				<i class="action fas fa-cloud" onclick="app.controllers.weatherController.toggleTemp()"></i>
+				<i class="action fas fa-cloud fa-3x" onclick="app.controllers.weatherController.toggleTemp()"></i>
 				<p>${temp} ${tempSymbol}</p>
 				<p>${res.name}</p>
 		</div>
