@@ -28,7 +28,7 @@ function TodoService() {
 	this.addTodo = function addTodo(formData,cb) {
 		// posts the todos to the server so its saved
 		var todo = new Todo(formData)
-		$.post(baseUrl, todo)
+		$.post(baseUrl, todos)
 		//for each todo push todo object into the todo list array
 			.then(todos => { 
 				todoList.unshift(todos.data)
@@ -48,7 +48,7 @@ function TodoService() {
 			url: baseUrl + '/' + todoId,
 			data: JSON.stringify(todoList)
 		})
-			.then(function (res) {
+			.then(function (todos) {
 				this.getTodos(cb)
 			})
 			.fail(logError)
@@ -60,7 +60,7 @@ function TodoService() {
 			//using the method delete will delete the object at the above url
 			method: 'DELETE'
 		})
-			.then(res => {
+			.then(todo => {
 				//then we need to redraw the todo list so its updated
 				this.getTodos(cb)
 			})

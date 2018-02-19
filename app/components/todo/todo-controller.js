@@ -16,7 +16,7 @@ function TodoController() {
 			<div class="form-check">
   				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="todo">
 				  <label class="form-check-label" for="todo">${todo.title}</label>
-				  <i onclick="app.controller.todoController.removeTodo('${todo.id}')" class="action fas fa-trash-alt"></i>
+				  <i onclick="app.controllers.todoController.removeTodo('${todo.id}')" class="action fas fa-trash-alt"></i>
 			</div>
 			`
 		})
@@ -31,7 +31,7 @@ function TodoController() {
 		formElem.reset()
 	}
 
-	this.toggleTodoStatus = function (todoId) {
+	this.toggleTodoStatus = function toggleTodoStatus(todoId) {
 		// asks the service to edit the todo status
 		todoService.toggleTodoStatus(todoId, getTodos)
 	}
