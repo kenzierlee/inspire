@@ -13,25 +13,25 @@ function TodoService() {
 		alert('Error occured sorry for the inconvenience!');
 	}
 
-	this.getTodos = function (cb) {
+	this.getTodos = function getTodos(cb) {
 		//goes to the server for the user, and gets there todolist
 		$.get(baseUrl)
 		//then puts the todolist results in the todoList array and draws them to the screen
-			.then(function (res) { 
-				todoList = res
+			.then(function (todos) { 
+				todoList = todos
 				cb(todoList)
 			})
 			//if there is an error you will be allerted by the logError function
 			.fail(logError)
 	}
 
-	this.addTodo = function (form,cb) {
+	this.addTodo = function addTodo(formData,cb) {
 		// posts the todos to the server so its saved
-		var todo = new Todo(form)
+		var todo = new Todo(formData)
 		$.post(baseUrl, todo)
 		//for each todo push todo object into the todo list array
-			.then(function(res){ 
-				todoList.push(res)
+			.then(todos => { 
+				todoList.unshift(todos.data)
 				cb(todoList)
 			})
 			//if function fails the logError function will alert user
@@ -40,9 +40,7 @@ function TodoService() {
 
 	this.toggleTodoStatus = function (todoId,cb) {
 		//STEP 1: Find the todo by its index **HINT** todoList
-
 		//STEP 2: Change the completed flag to the opposite of what is is **HINT** todo.completed = !todo.completed
-
 		//STEP 3: Here is that weird Ajax request because $.put doesn't exist
 		$.ajax({
 			method: 'PUT',
@@ -51,12 +49,12 @@ function TodoService() {
 			data: JSON.stringify(todoList)
 		})
 			.then(function (res) {
-				this.getTasks(cb)
+				this.getTodos(cb)
 			})
 			.fail(logError)
 	}
 
-	this.removeTodo = function (todoId,cb) {
+	this.removeTodo = function removeTodo(todoId,cb) {
 		$.ajax({
 			url: baseUrl +'/'+ todoId,
 			//using the method delete will delete the object at the above url
