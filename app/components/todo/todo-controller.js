@@ -25,8 +25,8 @@ function TodoController() {
 
 	this.addTodo = function addTodo(event) {
 		event.preventDefault();
-		var formData = event.target
-		todoService.addTodo(formData, drawTodos)
+		var form = event.target
+		todoService.addTodo(form, drawTodos)
 		//reset method will clear the todo form preventing multiple submits for 1 todo
 		formElem.reset()
 	}

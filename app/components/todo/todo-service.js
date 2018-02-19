@@ -28,10 +28,11 @@ function TodoService() {
 	this.addTodo = function addTodo(formData,cb) {
 		// posts the todos to the server so its saved
 		var todo = new Todo(formData)
-		$.post(baseUrl, todos)
-		//for each todo push todo object into the todo list array
-			.then(todos => { 
-				todoList.unshift(todos.data)
+		$.post(baseUrl, todo)
+		//for each result place the result object at the begining of the todoList array
+		//faster than a for loop and more readability with a lambda expression
+			.then(res => { 
+				todoList.unshift(res.data)
 				cb(todoList)
 			})
 			//if function fails the logError function will alert user
@@ -48,7 +49,7 @@ function TodoService() {
 			url: baseUrl + '/' + todoId,
 			data: JSON.stringify(todoList)
 		})
-			.then(function (todos) {
+			.then(function (res) {
 				this.getTodos(cb)
 			})
 			.fail(logError)
