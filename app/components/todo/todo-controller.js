@@ -10,7 +10,7 @@ function TodoController() {
 	}
 
 	function drawTodos(todos) {
-		var template = ''
+		var template = `<p>Todos: ${todos.length}</p>`
 		todos.forEach(todo => {
 			template += `
 			<div class="form-check">
